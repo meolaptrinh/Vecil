@@ -1,0 +1,11 @@
+BD : Trận Bạch Đằng 938
+TXL1 : Kháng chiến chống Tống Xâm Lược lần 1
+TXL2 : kháng chiến chống Tống xâm lược lần 2
+MC1: Kháng chiến chống Mông Cổ lần I
+MC2 : KC chống Mông Nguyên lần II
+MC3 : KC chống Mông Nguyên lần III
+MXL : Nhà Hồ chống nhà Minh xâm lược
+LS : Khởi nghĩa Lam Sơn
+TS : Khởi nghĩa Tây Sơn
+TNPT1 : Trịnh Nguyễn Phân Tranh (Đàng Trong - chúa Nguyễn)
+TNPT2 : Trịnh Nguyễn Phân Tranh (Đàng Ngoài - vua Lê chúa Trịnh)

@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dq212qb0kjo3j"]
+[gd_scene load_steps=17 format=3 uid="uid://dq212qb0kjo3j"]
 
 [ext_resource type="Texture2D" uid="uid://dcv6gso3v1uhd" path="res://res/img/background/bg1.png" id="1_3shnc"]
 [ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="2_p0wlc"]
@@ -6,31 +6,189 @@
 [ext_resource type="Texture2D" uid="uid://dttlbiu1317bk" path="res://res/img/buttons/level_select/backbutton_pressed.png" id="4_chg43"]
 [ext_resource type="Texture2D" uid="uid://mrd83nwun38b" path="res://res/img/buttons/level_select/backbutton_hover.png" id="4_rif6e"]
 [ext_resource type="Script" uid="uid://8bywhn5xvsgs" path="res://scenes/script/level_select/gobackto_menu_button.gd" id="6_r77uv"]
+[ext_resource type="Texture2D" uid="uid://uhsfhwkb4k7e" path="res://res/img/levels/mc1.png" id="7_7plkq"]
+[ext_resource type="Texture2D" uid="uid://cesetd4ho8sur" path="res://res/img/levels/mc1_mini.png" id="8_ckc44"]
+[ext_resource type="Script" uid="uid://crr7t0rp8donc" path="res://scenes/script/level_select/cur_img.gd" id="8_o2xx4"]
+[ext_resource type="Texture2D" uid="uid://d16b63virocn4" path="res://res/img/buttons/level_select/play_button.png" id="10_o2xx4"]
+[ext_resource type="Texture2D" uid="uid://cfpehb7oghwr2" path="res://res/img/buttons/level_select/playbutton_pressed.png" id="11_s6tf7"]
+[ext_resource type="Texture2D" uid="uid://bsk8xyfl7klp2" path="res://res/img/buttons/level_select/playbutton_hover.png" id="12_u4mbh"]
+[ext_resource type="Script" uid="uid://cg3h6abm23ylu" path="res://scenes/script/level_select/ganemode.gd" id="13_rovvv"]
+[ext_resource type="Texture2D" uid="uid://ngyftijn6pm6" path="res://res/img/buttons/level_select/kingmode1.png" id="13_u4mbh"]
+[ext_resource type="Texture2D" uid="uid://dmqqegxlvh1e7" path="res://res/img/buttons/level_select/genermode1.png" id="15_0wyvj"]
+[ext_resource type="Texture2D" uid="uid://bixgfah0k0tlb" path="res://res/img/buttons/level_select/subgen1.png" id="16_m4qq5"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="TextureRect" type="TextureRect" parent="."]
-offset_right = 1167.0
-offset_bottom = 652.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 texture = ExtResource("1_3shnc")
 expand_mode = 1
+stretch_mode = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="Label" type="Label" parent="."]
+layout_mode = 0
 offset_left = 150.0
 offset_right = 677.0
 offset_bottom = 144.0
 theme_override_fonts/font = ExtResource("2_p0wlc")
 theme_override_font_sizes/font_size = 72
 text = "Chọn một chiến dịch"
+metadata/_edit_use_anchors_ = true
 
 [node name="gobacktoMenu_button" type="TextureButton" parent="."]
-offset_left = -183.0
-offset_top = -212.0
-offset_right = 317.0
-offset_bottom = 288.0
+layout_mode = 0
+offset_left = 1.0
+offset_right = 90.0
+offset_bottom = 58.0
 texture_normal = ExtResource("3_2epne")
 texture_pressed = ExtResource("4_chg43")
 texture_hover = ExtResource("4_rif6e")
 script = ExtResource("6_r77uv")
+metadata/_edit_use_anchors_ = true
+
+[node name="cur_img" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -125.0
+offset_top = -209.0
+offset_right = 125.0
+offset_bottom = 41.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_7plkq")
+script = ExtResource("8_o2xx4")
+
+[node name="after_img" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -186.0
+offset_right = -171.0
+offset_bottom = -61.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ckc44")
+
+[node name="prev_img" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 166.0
+offset_top = -184.0
+offset_right = 291.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_ckc44")
+
+[node name="desLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -566.0
+offset_top = 149.0
+offset_right = 574.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("2_p0wlc")
+theme_override_font_sizes/font_size = 49
+text = "AAAAAAAAAAAAAAAAAAAAA"
+
+[node name="playgame_butotn" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 154.0
+offset_top = 54.0
+offset_right = 245.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("10_o2xx4")
+texture_pressed = ExtResource("11_s6tf7")
+texture_hover = ExtResource("12_u4mbh")
+
+[node name="ganemode" type="Node" parent="."]
+script = ExtResource("13_rovvv")
+
+[node name="kingmode" type="TextureButton" parent="ganemode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 43.0
+offset_top = 52.00003
+offset_right = 288.0
+offset_bottom = 310.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.37, 0.37)
+texture_normal = ExtResource("13_u4mbh")
+
+[node name="genmode" type="TextureButton" parent="ganemode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -54.0
+offset_top = 46.0
+offset_right = 50.0
+offset_bottom = 154.47852
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("15_0wyvj")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="subgenmode" type="TextureButton" parent="ganemode"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = 56.0
+offset_right = -43.0
+offset_bottom = 148.08215
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("16_m4qq5")
+ignore_texture_size = true
+stretch_mode = 0
 
 [connection signal="pressed" from="gobacktoMenu_button" to="gobacktoMenu_button" method="_on_pressed"]
+[connection signal="pressed" from="ganemode/kingmode" to="ganemode" method="_on_kingmode_pressed"]
+[connection signal="pressed" from="ganemode/genmode" to="ganemode" method="_on_genmode_pressed"]
+[connection signal="pressed" from="ganemode/subgenmode" to="ganemode" method="_on_subgenmode_pressed"]

@@ -1,0 +1,11 @@
+{   
+    "levels":[
+        {
+        "id":"MC1",
+        "difficulty":2,
+        "description":"Đế chế Mông Cổ hùng mạnh đang trên đường tiến tới xâm lược \n Đại Việt dưới thời nhà Trần, liệu bạn có thể đánh bại chúng?",
+        "image":"res://res/img/levels/mc1.png",
+        "mini_image":"res://res/img/levels/mc1_mini.png"
+        }
+    ]
+}
