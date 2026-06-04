@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dq212qb0kjo3j"]
+
+[ext_resource type="Texture2D" uid="uid://dcv6gso3v1uhd" path="res://res/img/background/bg1.png" id="1_3shnc"]
+[ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="2_p0wlc"]
+[ext_resource type="Texture2D" uid="uid://boacm38aqhpao" path="res://res/img/buttons/level_select/backbutton.png" id="3_2epne"]
+[ext_resource type="Texture2D" uid="uid://dttlbiu1317bk" path="res://res/img/buttons/level_select/backbutton_pressed.png" id="4_chg43"]
+[ext_resource type="Texture2D" uid="uid://mrd83nwun38b" path="res://res/img/buttons/level_select/backbutton_hover.png" id="4_rif6e"]
+[ext_resource type="Script" uid="uid://8bywhn5xvsgs" path="res://scenes/script/level_select/gobackto_menu_button.gd" id="6_r77uv"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1167.0
+offset_bottom = 652.0
+texture = ExtResource("1_3shnc")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 150.0
+offset_right = 677.0
+offset_bottom = 144.0
+theme_override_fonts/font = ExtResource("2_p0wlc")
+theme_override_font_sizes/font_size = 72
+text = "Chọn một chiến dịch"
+
+[node name="gobacktoMenu_button" type="TextureButton" parent="."]
+offset_left = -183.0
+offset_top = -212.0
+offset_right = 317.0
+offset_bottom = 288.0
+texture_normal = ExtResource("3_2epne")
+texture_pressed = ExtResource("4_chg43")
+texture_hover = ExtResource("4_rif6e")
+script = ExtResource("6_r77uv")
+
+[connection signal="pressed" from="gobacktoMenu_button" to="gobacktoMenu_button" method="_on_pressed"]

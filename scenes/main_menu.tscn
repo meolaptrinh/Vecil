@@ -1,0 +1,91 @@
+[gd_scene load_steps=13 format=3 uid="uid://cjn4ppgqofcv"]
+
+[ext_resource type="Texture2D" uid="uid://dcv6gso3v1uhd" path="res://res/img/background/bg1.png" id="1_8ln24"]
+[ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="1_l6cm7"]
+[ext_resource type="Script" uid="uid://bnyf2ublpil0k" path="res://scenes/script/exit_button.gd" id="2_ekxnf"]
+[ext_resource type="Script" uid="uid://b7yxlhplu8cwn" path="res://scenes/script/play_button.gd" id="3_jk1qb"]
+[ext_resource type="Texture2D" uid="uid://dycx27actlhi7" path="res://res/img/buttons/mainmenu/setting.png" id="4_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://churo5s6fud25" path="res://res/img/buttons/mainmenu/setting_pressed.png" id="5_tbmy8"]
+[ext_resource type="Texture2D" uid="uid://b8j6hbmmqjnx" path="res://res/img/buttons/mainmenu/setting_hover.png" id="6_jk1qb"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8ln24"]
+bg_color = Color(0.5411765, 0.32941177, 0.3137255, 0.7921569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtw2f"]
+bg_color = Color(0.120506294, 0.44871074, 0.45064002, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oa1go"]
+bg_color = Color(0.6126158, 0.38215715, 0.36472258, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tbmy8"]
+bg_color = Color(0.5411765, 0.32941177, 0.3137255, 0.7921569)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jk1qb"]
+bg_color = Color(0.5411765, 0.32941177, 0.3137255, 1)
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(0, -2)
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1167.0
+offset_bottom = 652.0
+texture = ExtResource("1_8ln24")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 482.0
+offset_top = 131.0
+offset_right = 730.0
+offset_bottom = 275.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 128
+text = "Vecil"
+
+[node name="play_button" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 277.0
+offset_right = 783.0
+offset_bottom = 357.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oa1go")
+text = "Chơi"
+script = ExtResource("3_jk1qb")
+
+[node name="archi_button" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 382.0
+offset_right = 783.0
+offset_bottom = 462.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_8ln24")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rtw2f")
+theme_override_styles/hover = SubResource("StyleBoxFlat_oa1go")
+text = "Thành tựu"
+
+[node name="exit_button" type="Button" parent="."]
+offset_left = 420.0
+offset_top = 487.0
+offset_right = 783.0
+offset_bottom = 567.0
+theme_override_fonts/font = ExtResource("1_l6cm7")
+theme_override_font_sizes/font_size = 50
+theme_override_styles/normal = SubResource("StyleBoxFlat_tbmy8")
+theme_override_styles/hover = SubResource("StyleBoxFlat_jk1qb")
+text = "Thoát"
+script = ExtResource("2_ekxnf")
+
+[node name="setting_button" type="TextureButton" parent="."]
+offset_left = 1001.0
+offset_top = -124.0
+offset_right = 1251.0
+offset_bottom = 223.0
+texture_normal = ExtResource("4_rtw2f")
+texture_pressed = ExtResource("5_tbmy8")
+texture_hover = ExtResource("6_jk1qb")
+
+[connection signal="pressed" from="play_button" to="play_button" method="_on_pressed"]
+[connection signal="pressed" from="exit_button" to="exit_button" method="_on_pressed"]
