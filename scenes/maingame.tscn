@@ -1,0 +1,166 @@
+[gd_scene load_steps=8 format=3 uid="uid://d5swb88wkmfa"]
+
+[ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
+[ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
+[ext_resource type="Script" uid="uid://ta6dopxj8i2r" path="res://scenes/script/maingame/maingame.gd" id="1_k15ac"]
+[ext_resource type="Texture2D" uid="uid://doipgoo8bsj1l" path="res://res/img/resources/woodicon.png" id="4_60i0e"]
+[ext_resource type="Script" uid="uid://c16eqh50iv8hv" path="res://scenes/script/maingame/camera_maingame.gd" id="4_nx2sv"]
+[ext_resource type="Texture2D" uid="uid://b20u2vuco4sku" path="res://res/img/resources/iron_icon.png" id="5_wj18i"]
+[ext_resource type="Texture2D" uid="uid://pci8h0aonavc" path="res://res/img/resources/populationicon.png" id="6_wj18i"]
+
+[node name="maingame" type="Node2D"]
+script = ExtResource("1_k15ac")
+
+[node name="map" type="TextureRect" parent="."]
+offset_top = 2.0
+offset_right = 1155.0
+offset_bottom = 642.0
+
+[node name="layertopbar" type="CanvasLayer" parent="."]
+
+[node name="topbar" type="ColorRect" parent="layertopbar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -326.0
+offset_right = 253.0
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.51107013, 0.34499887, 0, 1)
+script = ExtResource("1_jxvlb")
+
+[node name="food" type="Node" parent="layertopbar/topbar"]
+
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/food"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -325.0
+offset_right = -533.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_i8va4")
+expand_mode = 1
+
+[node name="label" type="Label" parent="layertopbar/topbar/food"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -530.0
+offset_top = -322.0
+offset_right = -387.0
+offset_bottom = -286.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "9999/9999 "
+
+[node name="wood" type="Node" parent="layertopbar/topbar"]
+
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/wood"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -403.0
+offset_top = -325.0
+offset_right = -344.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_60i0e")
+expand_mode = 1
+
+[node name="label" type="Label" parent="layertopbar/topbar/wood"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -348.0
+offset_top = -321.0
+offset_right = -221.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "9999/9999"
+
+[node name="iron" type="Node" parent="layertopbar/topbar"]
+
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/iron"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -223.0
+offset_top = -325.0
+offset_right = -164.0
+offset_bottom = -284.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_wj18i")
+expand_mode = 1
+
+[node name="label" type="Label" parent="layertopbar/topbar/iron"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -164.0
+offset_top = -325.0
+offset_right = -37.0
+offset_bottom = -281.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "9999/9999"
+
+[node name="population" type="Node" parent="layertopbar/topbar"]
+
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/population"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -28.0
+offset_top = -326.0
+offset_right = 22.0
+offset_bottom = -285.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_wj18i")
+expand_mode = 1
+
+[node name="label" type="Label" parent="layertopbar/topbar/population"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 22.0
+offset_top = -327.0
+offset_right = 149.0
+offset_bottom = -283.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 25
+text = "9999/9999"
+
+[node name="cameraMaingame" type="Camera2D" parent="."]
+position = Vector2(574, 323)
+script = ExtResource("4_nx2sv")

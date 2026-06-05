@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dq212qb0kjo3j"]
+[gd_scene load_steps=18 format=3 uid="uid://dq212qb0kjo3j"]
 
 [ext_resource type="Texture2D" uid="uid://dcv6gso3v1uhd" path="res://res/img/background/bg1.png" id="1_3shnc"]
 [ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="2_p0wlc"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d16b63virocn4" path="res://res/img/buttons/level_select/play_button.png" id="10_o2xx4"]
 [ext_resource type="Texture2D" uid="uid://cfpehb7oghwr2" path="res://res/img/buttons/level_select/playbutton_pressed.png" id="11_s6tf7"]
 [ext_resource type="Texture2D" uid="uid://bsk8xyfl7klp2" path="res://res/img/buttons/level_select/playbutton_hover.png" id="12_u4mbh"]
+[ext_resource type="Script" uid="uid://bnn30iqjxqgr1" path="res://scenes/script/level_select/playgame_butotn.gd" id="13_n1411"]
 [ext_resource type="Script" uid="uid://cg3h6abm23ylu" path="res://scenes/script/level_select/ganemode.gd" id="13_rovvv"]
 [ext_resource type="Texture2D" uid="uid://ngyftijn6pm6" path="res://res/img/buttons/level_select/kingmode1.png" id="13_u4mbh"]
 [ext_resource type="Texture2D" uid="uid://dmqqegxlvh1e7" path="res://res/img/buttons/level_select/genermode1.png" id="15_0wyvj"]
@@ -66,9 +67,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -125.0
-offset_top = -209.0
+offset_top = -204.0
 offset_right = 125.0
-offset_bottom = 41.0
+offset_bottom = 46.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("7_7plkq")
@@ -121,6 +122,16 @@ theme_override_fonts/font = ExtResource("2_p0wlc")
 theme_override_font_sizes/font_size = 49
 text = "AAAAAAAAAAAAAAAAAAAAA"
 
+[node name="diff_label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 451.0
+offset_top = 72.0
+offset_right = 695.0
+offset_bottom = 126.0
+theme_override_fonts/font = ExtResource("2_p0wlc")
+theme_override_font_sizes/font_size = 50
+text = "AAAAAA"
+
 [node name="playgame_butotn" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
@@ -137,6 +148,7 @@ grow_vertical = 2
 texture_normal = ExtResource("10_o2xx4")
 texture_pressed = ExtResource("11_s6tf7")
 texture_hover = ExtResource("12_u4mbh")
+script = ExtResource("13_n1411")
 
 [node name="ganemode" type="Node" parent="."]
 script = ExtResource("13_rovvv")
@@ -189,6 +201,7 @@ ignore_texture_size = true
 stretch_mode = 0
 
 [connection signal="pressed" from="gobacktoMenu_button" to="gobacktoMenu_button" method="_on_pressed"]
+[connection signal="pressed" from="playgame_butotn" to="playgame_butotn" method="_on_pressed"]
 [connection signal="pressed" from="ganemode/kingmode" to="ganemode" method="_on_kingmode_pressed"]
 [connection signal="pressed" from="ganemode/genmode" to="ganemode" method="_on_genmode_pressed"]
 [connection signal="pressed" from="ganemode/subgenmode" to="ganemode" method="_on_subgenmode_pressed"]
