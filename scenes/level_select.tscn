@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://dq212qb0kjo3j"]
+[gd_scene load_steps=22 format=3 uid="uid://dq212qb0kjo3j"]
 
 [ext_resource type="Texture2D" uid="uid://dcv6gso3v1uhd" path="res://res/img/background/bg1.png" id="1_3shnc"]
 [ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="2_p0wlc"]
@@ -17,6 +17,16 @@
 [ext_resource type="Texture2D" uid="uid://ngyftijn6pm6" path="res://res/img/buttons/level_select/kingmode1.png" id="13_u4mbh"]
 [ext_resource type="Texture2D" uid="uid://dmqqegxlvh1e7" path="res://res/img/buttons/level_select/genermode1.png" id="15_0wyvj"]
 [ext_resource type="Texture2D" uid="uid://bixgfah0k0tlb" path="res://res/img/buttons/level_select/subgen1.png" id="16_m4qq5"]
+[ext_resource type="Script" uid="uid://dwd2h4mdssdxe" path="res://scenes/script/level_select/namepopup.gd" id="18_vxici"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vxici"]
+bg_color = Color(1, 0.35686275, 0.12156863, 0.56078434)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_thf6c"]
+bg_color = Color(0.56402355, 0.16465986, 4.813075e-08, 0.56078434)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f86jd"]
+bg_color = Color(0.90122753, 0.4673125, 1.1551381e-06, 0.56078434)
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -132,7 +142,7 @@ theme_override_fonts/font = ExtResource("2_p0wlc")
 theme_override_font_sizes/font_size = 50
 text = "AAAAAA"
 
-[node name="playgame_butotn" type="TextureButton" parent="."]
+[node name="playgame_button" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -150,10 +160,10 @@ texture_pressed = ExtResource("11_s6tf7")
 texture_hover = ExtResource("12_u4mbh")
 script = ExtResource("13_n1411")
 
-[node name="ganemode" type="Node" parent="."]
+[node name="gamemode" type="Node" parent="."]
 script = ExtResource("13_rovvv")
 
-[node name="kingmode" type="TextureButton" parent="ganemode"]
+[node name="kingmode" type="TextureButton" parent="gamemode"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -168,7 +178,7 @@ grow_vertical = 2
 scale = Vector2(0.37, 0.37)
 texture_normal = ExtResource("13_u4mbh")
 
-[node name="genmode" type="TextureButton" parent="ganemode"]
+[node name="genmode" type="TextureButton" parent="gamemode"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -184,7 +194,7 @@ texture_normal = ExtResource("15_0wyvj")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="subgenmode" type="TextureButton" parent="ganemode"]
+[node name="subgenmode" type="TextureButton" parent="gamemode"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -200,8 +210,54 @@ texture_normal = ExtResource("16_m4qq5")
 ignore_texture_size = true
 stretch_mode = 0
 
+[node name="namepopup" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+mode = 3
+initial_position = 1
+size = Vector2i(600, 300)
+visible = true
+script = ExtResource("18_vxici")
+
+[node name="container" type="VBoxContainer" parent="namepopup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -146.0
+offset_right = 296.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="namerolelabel" type="Label" parent="namepopup/container"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_p0wlc")
+theme_override_font_sizes/font_size = 31
+text = "Nhân vật"
+
+[node name="LineEdit" type="LineEdit" parent="namepopup/container"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_p0wlc")
+theme_override_font_sizes/font_size = 22
+placeholder_text = "Nhập tên nhân vật"
+max_length = 36
+
+[node name="okbutton" type="Button" parent="namepopup/container"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/normal = SubResource("StyleBoxFlat_vxici")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_thf6c")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f86jd")
+text = "OK"
+
 [connection signal="pressed" from="gobacktoMenu_button" to="gobacktoMenu_button" method="_on_pressed"]
-[connection signal="pressed" from="playgame_butotn" to="playgame_butotn" method="_on_pressed"]
-[connection signal="pressed" from="ganemode/kingmode" to="ganemode" method="_on_kingmode_pressed"]
-[connection signal="pressed" from="ganemode/genmode" to="ganemode" method="_on_genmode_pressed"]
-[connection signal="pressed" from="ganemode/subgenmode" to="ganemode" method="_on_subgenmode_pressed"]
+[connection signal="pressed" from="playgame_button" to="playgame_button" method="_on_pressed"]
+[connection signal="pressed" from="gamemode/kingmode" to="gamemode" method="_on_kingmode_pressed"]
+[connection signal="pressed" from="gamemode/genmode" to="gamemode" method="_on_genmode_pressed"]
+[connection signal="pressed" from="gamemode/subgenmode" to="gamemode" method="_on_subgenmode_pressed"]
+[connection signal="pressed" from="namepopup/container/okbutton" to="playgame_button" method="_on_okbutton_pressed"]

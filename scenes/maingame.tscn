@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d5swb88wkmfa"]
+[gd_scene load_steps=9 format=3 uid="uid://d5swb88wkmfa"]
 
 [ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
 [ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c16eqh50iv8hv" path="res://scenes/script/maingame/camera_maingame.gd" id="4_nx2sv"]
 [ext_resource type="Texture2D" uid="uid://b20u2vuco4sku" path="res://res/img/resources/iron_icon.png" id="5_wj18i"]
 [ext_resource type="Texture2D" uid="uid://pci8h0aonavc" path="res://res/img/resources/populationicon.png" id="6_wj18i"]
+[ext_resource type="Script" uid="uid://c67hj6444u4oh" path="res://scenes/script/maingame/maingame_data.gd" id="8_460fr"]
 
 [node name="maingame" type="Node2D"]
 script = ExtResource("1_k15ac")
@@ -164,3 +165,6 @@ text = "9999/9999"
 [node name="cameraMaingame" type="Camera2D" parent="."]
 position = Vector2(574, 323)
 script = ExtResource("4_nx2sv")
+
+[node name="maingame_data" type="Node" parent="."]
+script = ExtResource("8_460fr")

@@ -10,7 +10,12 @@
         "food":100,
         "iron":5,
          "wood":50,
-        "population":400
+        "population":4000,
+        "start_time":{
+            "day":11,
+            "month":9,
+            "year":1257
+        }
         }
     ]
 }

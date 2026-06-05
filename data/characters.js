@@ -1,0 +1,36 @@
+{
+    [
+        {
+            "allyking":{
+                "name":"Trần Thái Tông",
+                "atk":1,
+                "def":5,
+                "heath":15
+            },
+            "allygener":{
+                "name":"Lê Phụ Trần",
+                "atk":5,
+                "def":100,
+                "heath":50
+            },
+            "allysubgen":{
+                "name":"Trần Quốc Khang",
+                "atk":2,
+                "def":15,
+                "heath":25
+            },
+            "enemyking":{
+                "name":"Mông Kha",
+                "atk":5,
+                "def":5,
+                "heath":10
+            },
+            "enemygener":{
+                "name":"Ngột Lương Hợp Thai",
+                "atk":75,
+                "def":7,
+                "heath":50
+            }
+        }
+    ]
+}
