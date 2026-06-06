@@ -4,11 +4,11 @@ var musicPlayer:AudioStreamPlayer;
 func _ready() -> void:
 	musicPlayer = AudioStreamPlayer.new();
 	add_child(musicPlayer);
-	musicPlayer.stream = load("res://res/music/main_theme.mp3");
 	musicPlayer.autoplay = true;
-	musicPlayer.play();
+	play_music("res://res/music/main_theme.mp3");
 func stop_music():
 	musicPlayer.stop();
-func play_music():
+func play_music(file:String):
 	if(!musicPlayer.playing):
+		musicPlayer.stream = load(file);
 		musicPlayer.play();
