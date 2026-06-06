@@ -21,7 +21,6 @@ func _on_genmode_pressed() -> void:
 	km.texture_normal = load("res://res/img/buttons/level_select/kingmode1.png");
 	level_data.curmode = 1;
 
-
 func _on_subgenmode_pressed() -> void:
 	sgm.texture_normal = load("res://res/img/buttons/level_select/subgen2.png"); 
 	gm.texture_normal = load("res://res/img/buttons/level_select/genermode1.png");

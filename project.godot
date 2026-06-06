@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 music_manager="*res://scenes/script/music_manager.gd"
 level_data="*res://scenes/script/level_data.gd"
+character="*res://scenes/script/maingame/character.gd"
 
 [rendering]
 
