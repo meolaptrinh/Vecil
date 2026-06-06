@@ -14,5 +14,6 @@ func _on_pressed() -> void:
 			labelrole.text = "Bạn là một phó tướng quân ⚔️";
 func _on_okbutton_pressed() -> void:
 	if(!nameline.text.strip_edges().is_empty()):
+		character.charname = nameline.text;
 		get_tree().change_scene_to_file("res://scenes/maingame.tscn");
 		music_manager.stop_music();

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d5swb88wkmfa"]
+[gd_scene load_steps=10 format=3 uid="uid://d5swb88wkmfa"]
 
 [ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
 [ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://c16eqh50iv8hv" path="res://scenes/script/maingame/camera_maingame.gd" id="4_nx2sv"]
 [ext_resource type="Texture2D" uid="uid://b20u2vuco4sku" path="res://res/img/resources/iron_icon.png" id="5_wj18i"]
 [ext_resource type="Texture2D" uid="uid://pci8h0aonavc" path="res://res/img/resources/populationicon.png" id="6_wj18i"]
+[ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="7_r5jia"]
 [ext_resource type="Script" uid="uid://c67hj6444u4oh" path="res://scenes/script/maingame/maingame_data.gd" id="8_460fr"]
 
 [node name="maingame" type="Node2D"]
@@ -161,6 +162,22 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "9999/9999"
+
+[node name="timelabel" type="Label" parent="layertopbar"]
+offset_left = 1.0
+offset_top = 37.0
+offset_right = 150.0
+offset_bottom = 67.0
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 28
+text = "1/1/2026"
+
+[node name="ColorRect" type="ColorRect" parent="layertopbar/timelabel"]
+z_index = -1
+layout_mode = 0
+offset_right = 151.0
+offset_bottom = 40.0
+color = Color(0, 0, 0, 0.58431375)
 
 [node name="cameraMaingame" type="Camera2D" parent="."]
 position = Vector2(574, 323)
