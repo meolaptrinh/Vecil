@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d5swb88wkmfa"]
+[gd_scene load_steps=15 format=3 uid="uid://d5swb88wkmfa"]
 
 [ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
 [ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
@@ -10,6 +10,10 @@
 [ext_resource type="FontFile" uid="uid://brv00ug442nij" path="res://res/fonts/dearpix-1-94.ttf" id="7_r5jia"]
 [ext_resource type="Script" uid="uid://c67hj6444u4oh" path="res://scenes/script/maingame/maingame_data.gd" id="8_460fr"]
 [ext_resource type="Script" uid="uid://cfrgedpusl1dv" path="res://scenes/script/maingame/timelbuttons.gd" id="8_n6p2k"]
+[ext_resource type="Texture2D" uid="uid://dw6hgvsrtvj5n" path="res://res/img/buttons/maingame/buildbt.png" id="9_vlyvo"]
+[ext_resource type="Texture2D" uid="uid://big7dsmdneufe" path="res://res/img/buttons/maingame/buildbt_pressed.png" id="10_mu2ks"]
+[ext_resource type="Texture2D" uid="uid://wxvik25t5gs8" path="res://res/img/buttons/maingame/buildbt_hover.png" id="11_a4mnq"]
+[ext_resource type="Script" uid="uid://dommqxlxium3q" path="res://scenes/script/maingame/build_button.gd" id="12_a4mnq"]
 
 [node name="maingame" type="Node2D"]
 script = ExtResource("1_k15ac")
@@ -36,9 +40,9 @@ grow_vertical = 2
 color = Color(0.51107013, 0.34499887, 0, 1)
 script = ExtResource("1_jxvlb")
 
-[node name="food" type="Node" parent="layertopbar/topbar"]
+[node name="slot1" type="Node" parent="layertopbar/topbar"]
 
-[node name="icon" type="TextureRect" parent="layertopbar/topbar/food"]
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/slot1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -53,7 +57,7 @@ grow_vertical = 2
 texture = ExtResource("1_i8va4")
 expand_mode = 1
 
-[node name="label" type="Label" parent="layertopbar/topbar/food"]
+[node name="label" type="Label" parent="layertopbar/topbar/slot1"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -68,9 +72,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "9999/9999 "
 
-[node name="wood" type="Node" parent="layertopbar/topbar"]
+[node name="slot2" type="Node" parent="layertopbar/topbar"]
 
-[node name="icon" type="TextureRect" parent="layertopbar/topbar/wood"]
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/slot2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -85,7 +89,7 @@ grow_vertical = 2
 texture = ExtResource("4_60i0e")
 expand_mode = 1
 
-[node name="label" type="Label" parent="layertopbar/topbar/wood"]
+[node name="label" type="Label" parent="layertopbar/topbar/slot2"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -100,9 +104,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "9999/9999"
 
-[node name="iron" type="Node" parent="layertopbar/topbar"]
+[node name="slot3" type="Node" parent="layertopbar/topbar"]
 
-[node name="icon" type="TextureRect" parent="layertopbar/topbar/iron"]
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/slot3"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -117,7 +121,7 @@ grow_vertical = 2
 texture = ExtResource("5_wj18i")
 expand_mode = 1
 
-[node name="label" type="Label" parent="layertopbar/topbar/iron"]
+[node name="label" type="Label" parent="layertopbar/topbar/slot3"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -132,9 +136,9 @@ grow_vertical = 2
 theme_override_font_sizes/font_size = 25
 text = "9999/9999"
 
-[node name="population" type="Node" parent="layertopbar/topbar"]
+[node name="slot4" type="Node" parent="layertopbar/topbar"]
 
-[node name="icon" type="TextureRect" parent="layertopbar/topbar/population"]
+[node name="icon" type="TextureRect" parent="layertopbar/topbar/slot4"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -149,7 +153,7 @@ grow_vertical = 2
 texture = ExtResource("6_wj18i")
 expand_mode = 1
 
-[node name="label" type="Label" parent="layertopbar/topbar/population"]
+[node name="label" type="Label" parent="layertopbar/topbar/slot4"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -222,6 +226,43 @@ theme_override_fonts/font = ExtResource("7_r5jia")
 text = "2x
 "
 
+[node name="build_button" type="TextureButton" parent="layertopbar"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -578.0
+offset_top = -245.0
+offset_right = -515.0106
+offset_bottom = -183.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("9_vlyvo")
+texture_pressed = ExtResource("10_mu2ks")
+texture_hover = ExtResource("11_a4mnq")
+ignore_texture_size = true
+stretch_mode = 0
+script = ExtResource("12_a4mnq")
+
+[node name="ColorRect" type="ColorRect" parent="layertopbar/build_button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 116.0
+color = Color(0.11858138, 0.11858138, 0.11858138, 0.7176471)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="layertopbar/build_button"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 2.0
+offset_right = 1151.0
+offset_bottom = 117.0
+
+[node name="containerH" type="HBoxContainer" parent="layertopbar/build_button/ScrollContainer"]
+layout_mode = 2
+
 [node name="cameraMaingame" type="Camera2D" parent="."]
 position = Vector2(574, 323)
 script = ExtResource("4_nx2sv")
@@ -233,3 +274,4 @@ script = ExtResource("8_460fr")
 [connection signal="pressed" from="layertopbar/timelabel/half_time_button" to="layertopbar/timelabel" method="_on_half_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/once_time_button" to="layertopbar/timelabel" method="_on_once_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/double_time_button" to="layertopbar/timelabel" method="_on_double_time_button_pressed"]
+[connection signal="pressed" from="layertopbar/build_button" to="layertopbar/build_button" method="_on_pressed"]

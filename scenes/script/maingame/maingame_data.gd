@@ -3,20 +3,14 @@ extends Node
 @onready var curlv = level_data.curlv;
 @onready var levels = level_data.levels;
 @onready var chardata = character.levels[level_data.curlv];
-#các biến tài nguyên 
-@onready var food = int(levels[curlv]["food"]);
-@onready var iron = int(levels[curlv]["iron"]);
-@onready var wood = int(levels[curlv]["wood"]);
-@onready var population = int(levels[curlv]["population"]);
+#tài nguyên
+@onready var resources = levels[curlv];
 #các biến thời gian
 @onready var day = levels[curlv]["start_time"]["day"];
 @onready var month = levels[curlv]["start_time"]["month"];
 @onready var year = levels[curlv]["start_time"]["year"];
 func set_ready_data():
-	food = levels[curlv]["food"];
-	iron = levels[curlv]["iron"];
-	wood = levels[curlv]["wood"];
-	population = levels[curlv]["population"];
+	resources = levels[curlv];
 	
 	chardata = character.levels[curlv];
 	

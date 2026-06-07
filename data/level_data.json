@@ -11,6 +11,7 @@
         "iron":5,
          "wood":50,
         "population":4000,
+        "soldiers":100,
         "start_time":{
             "day":11,
             "month":9,

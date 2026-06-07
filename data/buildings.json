@@ -1,0 +1,13 @@
+{
+    "buildings":[
+        {
+            "name":"Hầm mỏ",
+            "cost":15,
+            "uses":{
+                "type":"iron",
+                "incre_per_day":2
+            },
+            "img":"res://res/img/buildings/mine.png"
+        }
+    ]
+}

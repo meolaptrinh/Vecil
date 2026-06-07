@@ -7,10 +7,10 @@ extends Camera2D
 @onready var map = get_parent().get_node("map");
 @onready var mapsize = map.size;
 func _ready():
-	limit_left = -100;
-	limit_top = -150;
-	limit_right = mapsize.x + 200;
-	limit_bottom = mapsize.y+200;
+	limit_left = -400;
+	limit_top = -400;
+	limit_right = mapsize.x + 400;
+	limit_bottom = mapsize.y+400;
 func _process(delta):
 	var dir = Vector2.ZERO
 	if Input.is_action_pressed("ui_left"):
