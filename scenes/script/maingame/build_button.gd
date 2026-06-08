@@ -16,8 +16,9 @@ func _ready() -> void:
 	colorRect.visible = false;
 	scrContainer.visible = false;
 	containerH.visible = false;
-	if(level_data.curmode == 0):
+	if(level_data.curmode == 0 or level_data.curmode == 2):
 		for building in buildlist:
+			if(int(building["mode"]) == level_data.curmode):
 				var buildcard = Button.new();
 				var containerV = VBoxContainer.new();
 				var namebuild = Label.new();
@@ -25,7 +26,7 @@ func _ready() -> void:
 				var costbuild = Label.new();
 				#Gán các thông tin cần thiết 
 				namebuild.text = building["name"];
-				costbuild.text = str(int(building["cost"])) + " Gỗ";
+				costbuild.text = str(int(building["cost"])) + (" % Tỉ lệ" if (level_data.curmode == 2) else " Gỗ");
 				namebuild.add_theme_font_override("font",pixelfont);
 				costbuild.add_theme_font_override("font",pixelfont);
 				imgbuild.texture = load(building["img"]);

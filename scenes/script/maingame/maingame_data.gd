@@ -9,6 +9,7 @@ extends Node
 @onready var day = levels[curlv]["start_time"]["day"];
 @onready var month = levels[curlv]["start_time"]["month"];
 @onready var year = levels[curlv]["start_time"]["year"];
+
 func set_ready_data():
 	resources = levels[curlv];
 	

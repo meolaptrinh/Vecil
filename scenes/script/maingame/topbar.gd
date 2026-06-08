@@ -18,6 +18,21 @@ func showtopbar():
 		slot2img.texture = preload("res://res/img/resources/iron_icon.png");
 		slot3img.texture = preload("res://res/img/resources/woodicon.png");
 		slot1img.texture = preload("res://res/img/resources/populationicon.png");
-	if(level_data.curmode == 1):
+	elif(level_data.curmode == 1):
 		slot1show.text = str(int(maingame_data.resources["soldiers"]))+"/9999";
 		slot1img.texture = preload("res://res/img/resources/soldiers.png");
+		slot2show.text = str(int(maingame_data.resources["morale"]))+"/9999";
+		slot2img.texture = preload("res://res/img/resources/morale.png");
+		slot3show.text = str(int(maingame_data.resources["king_trust"]))+"/9999";
+		slot3img.texture = preload("res://res/img/resources/trust.png");
+		slot4show.text = str(int(maingame_data.resources["food"]*maingame_data.resources["soldiers"]/maingame_data.resources["population"]))+"/9999";
+		slot4img.texture = preload("res://res/img/resources/supp.png");
+	elif(level_data.curmode == 2):
+		slot1show.text = str(int(maingame_data.resources["spy"]))+"/9999";
+		slot1img.texture = preload("res://res/img/resources/spy.png");
+		slot2show.visible = false;
+		slot2img.visible = false;
+		slot3show.visible = false;
+		slot3img.visible = false;
+		slot4show.visible = false;
+		slot4img.visible = false;

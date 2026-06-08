@@ -12,6 +12,9 @@
          "wood":50,
         "population":4000,
         "soldiers":100,
+        "morale":9999,
+        "king_trust":8000,
+        "spy":2,
         "start_time":{
             "day":11,
             "month":9,

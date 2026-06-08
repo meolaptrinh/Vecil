@@ -1,1 +1,2 @@
-TODO : Tùy chỉnh thanh top bar cho phù hợp với từng role
+#TODO : 
+-thêm tính năng xây công trình cho role 0, role 2
