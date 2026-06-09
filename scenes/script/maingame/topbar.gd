@@ -15,9 +15,9 @@ func showtopbar():
 		slot3show.text = str(int(maingame_data.resources["iron"]))+"/9999";
 		slot4show.text = str(int(maingame_data.resources["population"]))+"/9999";
 		slot1img.texture = preload("res://res/img/resources/foodicon.png");
-		slot2img.texture = preload("res://res/img/resources/iron_icon.png");
-		slot3img.texture = preload("res://res/img/resources/woodicon.png");
-		slot1img.texture = preload("res://res/img/resources/populationicon.png");
+		slot2img.texture = preload("res://res/img/resources/woodicon.png");
+		slot3img.texture = preload("res://res/img/resources/iron_icon.png");
+		slot4img.texture = preload("res://res/img/resources/populationicon.png");
 	elif(level_data.curmode == 1):
 		slot1show.text = str(int(maingame_data.resources["soldiers"]))+"/9999";
 		slot1img.texture = preload("res://res/img/resources/soldiers.png");

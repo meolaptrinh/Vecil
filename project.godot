@@ -21,6 +21,7 @@ music_manager="*res://scenes/script/music_manager.gd"
 level_data="*res://scenes/script/level_data.gd"
 character="*res://scenes/script/maingame/character.gd"
 buildings="*res://scenes/script/maingame/buildings.gd"
+map_data="*res://scenes/script/maingame/map_data.gd"
 
 [rendering]
 

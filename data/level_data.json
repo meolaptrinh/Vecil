@@ -1,7 +1,7 @@
 {   
     "levels":[
         {
-        "id":"MC1",
+        "id":"mc1",
         "difficulty":1,
         "description":"Đế chế Mông Cổ hùng mạnh đang trên đường tiến tới xâm lược \n Đại Việt dưới thời nhà Trần, liệu bạn có thể đánh bại chúng?",
         "image":"res://res/img/levels/mc1.png",
@@ -9,7 +9,7 @@
         "map":"res://res/img/maps/mc1.png",
         "food":100,
         "iron":5,
-         "wood":50,
+        "wood":50,
         "population":4000,
         "soldiers":100,
         "morale":9999,

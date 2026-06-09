@@ -263,12 +263,45 @@ offset_bottom = 117.0
 [node name="containerH" type="HBoxContainer" parent="layertopbar/build_button/ScrollContainer"]
 layout_mode = 2
 
+[node name="cancel_label" type="Label" parent="layertopbar/build_button"]
+layout_mode = 0
+offset_left = 540.0
+offset_top = 116.0
+offset_right = 698.0
+offset_bottom = 145.0
+theme_override_colors/font_color = Color(0.93333334, 0, 0, 1)
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 26
+text = "Bấm X để hủy xây"
+
 [node name="cameraMaingame" type="Camera2D" parent="."]
 position = Vector2(574, 323)
 script = ExtResource("4_nx2sv")
 
 [node name="maingame_data" type="Node" parent="."]
 script = ExtResource("8_460fr")
+
+[node name="warn_popup" type="PopupPanel" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(600, 400)
+
+[node name="Label" type="Label" parent="warn_popup"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -296.0
+offset_top = -196.0
+offset_right = 296.0
+offset_bottom = 196.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 32
+text = "Cảnh báo
+"
 
 [connection signal="pressed" from="layertopbar/timelabel/stop_time_button" to="layertopbar/timelabel" method="_on_stop_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/half_time_button" to="layertopbar/timelabel" method="_on_half_time_button_pressed"]

@@ -1,2 +1,2 @@
 #TODO : 
--thêm tính năng xây công trình cho role 0, role 2
+-Thêm tính năng quản lí quân đội cho role 1

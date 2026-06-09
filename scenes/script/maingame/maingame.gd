@@ -10,7 +10,7 @@ extends Node2D
 @onready var day_time_second := 1.0;
 @onready var month_days = [31,28,31,30,31,30,31,31,30,31,30,31];
 @onready var stop_time = false;
-
+@onready var ban_build = 0;
 func _ready() -> void:
 	map.texture = load(levels[curlv]["map"]);
 	maingame_data.set_ready_data();
@@ -23,10 +23,21 @@ func _process(delta: float) -> void:
 		next_day();
 	show_day();
 func next_day():
+	if(ban_build>0):
+		ban_build-=1;
+	for i in maingame_data.res_per_day:
+		if(maingame_data.res_per_day[i] is int or maingame_data.res_per_day[i] is float):
+			if(maingame_data.resources[i]<9999):
+				maingame_data.resources[i] += maingame_data.res_per_day[i];
+			else:
+				maingame_data.resources[i] = 9999;
 	if(maingame_data.day == 28 and maingame_data.month == 2):
 		if(maingame_data.year%4 == 0):
 			if(maingame_data.year%100 == 0):
-				month_days[1] = 28;
+				if(maingame_data.year%400 == 0):
+					month_days[1] = 29;
+				else:
+					month_days[1] = 28;
 			else:
 				month_days[1] = 29;
 		else:
@@ -42,6 +53,6 @@ func next_day():
 			maingame_data.month = 1;
 			maingame_data.day = 1;
 			maingame_data.year+=1;
-
+	topbar.showtopbar();
 func show_day():
 	timelabel.text = str(int(maingame_data.day))+"/"+str(int(maingame_data.month))+"/"+str(int(maingame_data.year));;

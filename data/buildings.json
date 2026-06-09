@@ -1,19 +1,22 @@
 {
     "buildings":[
         {
+            "id":0,
             "name":"Hầm mỏ",
             "mode":0,
             "cost":15,
             "uses":{
                 "type":"iron",
-                "incre_per_day":2
+                "incre_per_day":0.5
             },
             "img":"res://res/img/buildings/mine.png"
         },
         {
+            "id":1,
             "name":"Hội trinh sát",
             "mode":2,
-            "cost":80,
+            "cost":95,
+            "limit":2,
             "uses":{
                 "type":"spy",
                 "incre_per_day":0.25
