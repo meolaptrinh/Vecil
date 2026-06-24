@@ -12,16 +12,17 @@ extends Node2D
 @onready var stop_time = false;
 @onready var ban_build = 0;
 func _ready() -> void:
-	map.texture = load(levels[curlv]["map"]);
+	map.texture = load(map_data.maps[maingame_data.level_id]["map"]);
 	maingame_data.set_ready_data();
 	topbar.showtopbar();
+	show_day();
 func _process(delta: float) -> void:
 	if(!stop_time):
 		day_time_calculator += delta;
 	if(day_time_calculator>=day_time_second):
 		day_time_calculator = 0.0;
 		next_day();
-	show_day();
+		show_day();
 func next_day():
 	if(ban_build>0):
 		ban_build-=1;
@@ -56,3 +57,10 @@ func next_day():
 	topbar.showtopbar();
 func show_day():
 	timelabel.text = str(int(maingame_data.day))+"/"+str(int(maingame_data.month))+"/"+str(int(maingame_data.year));;
+func get_mouse_color():
+	var mouse_pos: Vector2 = get_viewport().get_mouse_position();
+	var local_mouse_pos = map.make_canvas_position_local(mouse_pos);
+	var img: Image = map.texture.get_image();	
+	if (img and img.get_width() > local_mouse_pos.x and img.get_height() > local_mouse_pos.y and local_mouse_pos.x >= 0 and local_mouse_pos.y >= 0):
+		return img.get_pixelv(local_mouse_pos);
+	return Color.WHITE;

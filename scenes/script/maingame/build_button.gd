@@ -7,6 +7,7 @@ extends TextureButton
 @onready var containerH = $ScrollContainer/containerH;
 @onready var topbar = get_parent().get_node("topbar");
 @onready var map = get_parent().get_parent().get_node("map");
+@onready var layer = get_parent().get_parent().get_node("map").get_node("building_layer");
 @onready var buildlist = buildings.buildings_list;
 @onready var maingame_data = get_parent().get_parent().get_node("maingame_data");
 @onready var maingame = get_parent().get_parent();
@@ -86,13 +87,8 @@ func _input(event: InputEvent) -> void:
 					cancelLabel.visible = false;
 					return;
 				#Lấy màu con trỏ chuột
-				var mouseColor:Color;
+				var mouseColor = maingame.get_mouse_color();
 				var mouse_pos: Vector2 = get_viewport().get_mouse_position();
-				var viewport_texture: ViewportTexture = get_viewport().get_texture();
-				var img: Image = viewport_texture.get_image();
-				
-				if (img and img.get_width() > mouse_pos.x and img.get_height() > mouse_pos.y and mouse_pos.x >= 0 and mouse_pos.y >= 0):
-					mouseColor = img.get_pixel(int(mouse_pos.x), int(mouse_pos.y));
 				#kiểm tra màu đang nhấn phải VN k
 				if(abs(mouseColor.r*255 - map_data.maps[maingame_data.level_id]["vn"]["r"])<0.5):
 					if(abs(mouseColor.b*255 - map_data.maps[maingame_data.level_id]["vn"]["b"])<0.5):
@@ -102,7 +98,7 @@ func _input(event: InputEvent) -> void:
 								structimg.texture = load(placingimg);
 								var local_pos = map.make_canvas_position_local(mouse_pos);
 								structimg.set_position(local_pos);
-								map.add_child(structimg);
+								layer.add_child(structimg);
 								Input.set_custom_mouse_cursor(null);
 								placing = false;
 								placingimg = "";
@@ -146,7 +142,7 @@ func _input(event: InputEvent) -> void:
 									structimg.texture = load(placingimg);
 									var local_pos = map.make_canvas_position_local(mouse_pos);
 									structimg.set_position(local_pos);
-									map.add_child(structimg);
+									layer.add_child(structimg);
 									Input.set_custom_mouse_cursor(null);
 									placing = false;
 									placingimg = "";

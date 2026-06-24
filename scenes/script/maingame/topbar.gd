@@ -25,7 +25,7 @@ func showtopbar():
 		slot2img.texture = preload("res://res/img/resources/morale.png");
 		slot3show.text = str(int(maingame_data.resources["king_trust"]))+"/9999";
 		slot3img.texture = preload("res://res/img/resources/trust.png");
-		slot4show.text = str(int(maingame_data.resources["food"]*maingame_data.resources["soldiers"]/maingame_data.resources["population"]))+"/9999";
+		slot4show.text = str(int(maingame_data.resources["army_food"]))+"/9999";
 		slot4img.texture = preload("res://res/img/resources/supp.png");
 	elif(level_data.curmode == 2):
 		slot1show.text = str(int(maingame_data.resources["spy"]))+"/9999";

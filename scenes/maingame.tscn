@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://d5swb88wkmfa"]
+[gd_scene load_steps=18 format=3 uid="uid://d5swb88wkmfa"]
 
 [ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
 [ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
 [ext_resource type="Script" uid="uid://ta6dopxj8i2r" path="res://scenes/script/maingame/maingame.gd" id="1_k15ac"]
+[ext_resource type="Script" uid="uid://nhvntpex71ql" path="res://scenes/script/maingame/map.gd" id="2_8ja4j"]
 [ext_resource type="Texture2D" uid="uid://doipgoo8bsj1l" path="res://res/img/resources/woodicon.png" id="4_60i0e"]
 [ext_resource type="Script" uid="uid://c16eqh50iv8hv" path="res://scenes/script/maingame/camera_maingame.gd" id="4_nx2sv"]
 [ext_resource type="Texture2D" uid="uid://b20u2vuco4sku" path="res://res/img/resources/iron_icon.png" id="5_wj18i"]
@@ -14,14 +15,22 @@
 [ext_resource type="Texture2D" uid="uid://big7dsmdneufe" path="res://res/img/buttons/maingame/buildbt_pressed.png" id="10_mu2ks"]
 [ext_resource type="Texture2D" uid="uid://wxvik25t5gs8" path="res://res/img/buttons/maingame/buildbt_hover.png" id="11_a4mnq"]
 [ext_resource type="Script" uid="uid://dommqxlxium3q" path="res://scenes/script/maingame/build_button.gd" id="12_a4mnq"]
+[ext_resource type="Script" uid="uid://dqm1xwy5mkjmu" path="res://scenes/script/maingame/army_system.gd" id="16_gt45n"]
+[ext_resource type="Script" uid="uid://c2rfrinjvp14d" path="res://scenes/script/maingame/army_control_panel.gd" id="17_j0xcf"]
 
 [node name="maingame" type="Node2D"]
 script = ExtResource("1_k15ac")
 
 [node name="map" type="TextureRect" parent="."]
+offset_left = 1.0
 offset_top = -1.0
-offset_right = 1150.0
+offset_right = 1151.0
 offset_bottom = 647.0
+script = ExtResource("2_8ja4j")
+
+[node name="building_layer" type="Node2D" parent="map"]
+
+[node name="ArmyLayer" type="Node2D" parent="map"]
 
 [node name="layertopbar" type="CanvasLayer" parent="."]
 
@@ -274,12 +283,88 @@ theme_override_fonts/font = ExtResource("7_r5jia")
 theme_override_font_sizes/font_size = 26
 text = "Bấm X để hủy xây"
 
+[node name="LayerButton" type="Node" parent="layertopbar"]
+
+[node name="blayer_button" type="Button" parent="layertopbar/LayerButton"]
+offset_left = 325.0
+offset_top = 39.0
+offset_right = 366.0
+offset_bottom = 81.0
+text = "🏛️"
+
+[node name="alayer_button" type="Button" parent="layertopbar/LayerButton"]
+offset_left = 368.0
+offset_top = 39.0
+offset_right = 409.0
+offset_bottom = 81.0
+text = "⚔️"
+
 [node name="cameraMaingame" type="Camera2D" parent="."]
 position = Vector2(574, 323)
 script = ExtResource("4_nx2sv")
 
 [node name="maingame_data" type="Node" parent="."]
 script = ExtResource("8_460fr")
+
+[node name="army_system" type="Node" parent="."]
+script = ExtResource("16_gt45n")
+
+[node name="army_control_panel" type="PopupPanel" parent="army_system"]
+oversampling_override = 1.0
+position = Vector2i(688, 0)
+size = Vector2i(250, 648)
+visible = true
+transient_to_focused = true
+script = ExtResource("17_j0xcf")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="army_system/army_control_panel"]
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 246.0
+offset_bottom = 644.0
+theme_override_constants/separation = 20
+
+[node name="army_panel_label" type="Label" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 28
+text = "ADU ADU "
+
+[node name="bt1" type="Button" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 21
+text = "Di chuyển quân đội"
+
+[node name="bt2" type="Button" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 21
+text = "Di chuyển quân đội"
+
+[node name="bt3" type="Button" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 21
+text = "Di chuyển quân đội"
+
+[node name="bt4" type="Button" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 21
+text = "Di chuyển quân đội"
+
+[node name="bt5" type="Button" parent="army_system/army_control_panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("7_r5jia")
+theme_override_font_sizes/font_size = 21
+text = "Di chuyển quân đội"
 
 [node name="warn_popup" type="PopupPanel" parent="."]
 oversampling_override = 1.0
@@ -292,10 +377,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -296.0
-offset_top = -196.0
-offset_right = 296.0
-offset_bottom = 196.0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 596.0
+offset_bottom = 396.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_fonts/font = ExtResource("7_r5jia")
@@ -308,3 +393,10 @@ text = "Cảnh báo
 [connection signal="pressed" from="layertopbar/timelabel/once_time_button" to="layertopbar/timelabel" method="_on_once_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/double_time_button" to="layertopbar/timelabel" method="_on_double_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/build_button" to="layertopbar/build_button" method="_on_pressed"]
+[connection signal="pressed" from="layertopbar/LayerButton/blayer_button" to="map" method="_on_blayer_button_pressed"]
+[connection signal="pressed" from="layertopbar/LayerButton/alayer_button" to="map" method="_on_alayer_button_pressed"]
+[connection signal="about_to_popup" from="army_system/army_control_panel" to="army_system/army_control_panel" method="_on_about_to_popup"]
+[connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt1" to="army_system" method="_on_bt_1_pressed"]
+[connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt2" to="army_system" method="_on_bt_2_pressed"]
+[connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt3" to="army_system" method="_on_bt_3_pressed"]
+[connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt4" to="army_system" method="_on_bt_4_pressed"]

@@ -1,2 +1,2 @@
 #TODO : 
--Thêm tính năng quản lí quân đội cho role 1
+-Thêm tính năng di chuyển quân đội

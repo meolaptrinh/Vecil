@@ -13,16 +13,16 @@ func _ready():
 	limit_bottom = mapsize.y+400;
 func _process(delta):
 	var dir = Vector2.ZERO
-	if Input.is_action_pressed("ui_left"):
+	if Input.is_action_pressed("press_left"):
 		dir.x -= 1;
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("press_right"):
 		dir.x += 1;
 
-	if Input.is_action_pressed("ui_up"):
+	if Input.is_action_pressed("press_up"):
 		dir.y -= 1;
 
-	if Input.is_action_pressed("ui_down"):
+	if Input.is_action_pressed("press_down"):
 		dir.y += 1;
 
 	if dir != Vector2.ZERO:

@@ -6,7 +6,6 @@
         "description":"Đế chế Mông Cổ hùng mạnh đang trên đường tiến tới xâm lược \n Đại Việt dưới thời nhà Trần, liệu bạn có thể đánh bại chúng?",
         "image":"res://res/img/levels/mc1.png",
         "mini_image":"res://res/img/levels/mc1_mini.png",
-        "map":"res://res/img/maps/mc1.png",
         "food":100,
         "iron":5,
         "wood":50,
@@ -14,6 +13,7 @@
         "soldiers":100,
         "morale":9999,
         "king_trust":8000,
+        "army_food":20,
         "spy":2,
         "start_time":{
             "day":11,
