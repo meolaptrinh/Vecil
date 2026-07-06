@@ -3,14 +3,19 @@ extends Node
 @onready var map = $"../map/ArmyLayer";
 @onready var maingame_data = $"../maingame_data";
 @onready var army_user_panel = $"army_control_panel";
+@onready var topbar = $"../layertopbar/topbar"
+@onready var land_system = $"../land_system";
+@onready var army_path = $"../map/army_path"
+@onready var onmap =$"../map";
 @onready var army = army_data.army_dict[maingame_data.level_id];
 @onready var select_id = -1;
-@onready var topbar = $"../layertopbar/topbar"
 @onready var curdiv:Dictionary;
 @onready var deffood = maingame_data.resources["army_food"];
+@onready var tex_size:Vector2;
 var kinglead = false; #Vua leader
 var sublead = false; # Phó Tướng leader
 var genlead = false; # Tướng leader
+var moving = false;
 func _ready() -> void:
 	army_user_panel.visible = false;
 	show_army();
@@ -40,6 +45,8 @@ func show_army():
 		box.pressed.connect(divi_pressed.bind(divi));
 		box.set_position(box_pos);
 		map.add_child(box);
+		divi["node"] = box;
+		divi["path"] = [];
 func divi_pressed(divi):
 	if(!buildingvar.placing):
 		if(select_id != divi["id"]):
@@ -50,9 +57,6 @@ func divi_pressed(divi):
 			army_user_panel.visible = false;
 			select_id = -1;
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta: float) -> void:
-	#pass
 
 
 func _on_bt_4_pressed() -> void:
@@ -62,11 +66,27 @@ func _on_bt_4_pressed() -> void:
 			curdiv["unit"] /= 2;
 		else:
 			curdiv["unit"] = int(curdiv["unit"]/2) + 1;
-		var divi_2 = curdiv.duplicate();
-		divi_2["leader"] = "";
-		divi_2["id"] = army.size();
-		divi_2["unit"] = old_unit - curdiv["unit"];
-		divi_2["pos_y"] -= 23;
+		var divi_2 = {
+			"id": army.size(),
+			"pos_x": curdiv["pos_x"],
+			"pos_y": curdiv["pos_y"] - 23,
+			"unit": old_unit - curdiv["unit"],
+			"lv": curdiv["lv"],
+			"leader": "",
+			"type": curdiv["type"],
+
+			"path": [],
+			"path_index": 0
+		}
+		var p = land_system.nearest_land(
+		Vector2i(
+			int(curdiv["pos_x"]),
+			int(curdiv["pos_y"] - 23)
+			)
+			)
+
+		divi_2["pos_x"] = p.x
+		divi_2["pos_y"] = p.y
 		army.append(divi_2);
 		curdiv = divi_2;
 		show_army();
@@ -95,7 +115,8 @@ func _on_bt_1_pressed() -> void:
 		select_id = -1;
 		kinglead = true;
 	elif(level_data.curmode == 1 or kinglead == true):
-		print("move");
+		moving = true
+		army_user_panel.visible = false
 
 
 func _on_bt_2_pressed() -> void:
@@ -106,3 +127,62 @@ func _on_bt_2_pressed() -> void:
 			curdiv["leader"] = "allysubgen";
 			sublead = true;
 			army_user_panel.popup();
+
+
+func _on_bt_5_button_down() -> void:
+	if(level_data.curmode == 1):
+		if(maingame_data.resources["army_food"]>=curdiv["unit"]*0.15*curdiv["lv"]):
+			maingame_data.resources["army_food"] -= curdiv["unit"]*0.3*curdiv["lv"];
+			curdiv["lv"]+=1;
+		army_user_panel.visible = false;
+
+
+
+func _process(delta: float) -> void:
+	for divi in army:
+		if divi == null:
+			continue
+
+		if divi["path"].is_empty():
+			continue
+
+		var target: Vector2 = divi["path"][0]
+
+		var pos = Vector2(divi["pos_x"], divi["pos_y"])
+		pos = pos.move_toward(target, 80 * delta)
+
+		divi["pos_x"] = pos.x
+		divi["pos_y"] = pos.y
+		divi["node"].position = pos
+
+		if pos.distance_to(target) < 1:
+			divi["path"].pop_front()
+
+			if divi == curdiv:
+				army_path.path = divi["path"]
+				army_path.queue_redraw()
+func _input(event):
+	if !moving:
+		return
+
+	if event is InputEventMouseButton \
+	and event.button_index == MOUSE_BUTTON_LEFT \
+	and event.pressed:
+
+		var mouse = map.get_local_mouse_position()
+		if mouse.x < 0 or mouse.y < 0:
+			moving = false
+			return
+
+		if mouse.x >= tex_size.x or mouse.y >= tex_size.y:
+			moving = false
+			return
+		curdiv["path"] = land_system.find_path(
+			Vector2i(curdiv["pos_x"], curdiv["pos_y"]),
+			Vector2i(mouse.x, mouse.y)
+		)
+
+		army_path.path = curdiv["path"] #line 174
+		army_path.queue_redraw()
+
+		moving = false

@@ -5,7 +5,8 @@ extends Node2D
 @onready var maingame_data = $maingame_data;
 @onready var topbar = $layertopbar/topbar;
 @onready var timelabel = $layertopbar/timelabel;
-
+@onready var land_system = $"land_system";
+@onready var army_system = $"army_system";
 @onready var day_time_calculator :=0.0;
 @onready var day_time_second := 1.0;
 @onready var month_days = [31,28,31,30,31,30,31,31,30,31,30,31];
@@ -15,6 +16,8 @@ func _ready() -> void:
 	map.texture = load(map_data.maps[maingame_data.level_id]["map"]);
 	maingame_data.set_ready_data();
 	topbar.showtopbar();
+	land_system.land_scan();
+	army_system.tex_size = map.texture.get_size();
 	show_day();
 func _process(delta: float) -> void:
 	if(!stop_time):

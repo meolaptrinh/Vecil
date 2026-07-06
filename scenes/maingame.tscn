@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d5swb88wkmfa"]
+[gd_scene load_steps=20 format=3 uid="uid://d5swb88wkmfa"]
 
 [ext_resource type="Texture2D" uid="uid://sig4wulxebnj" path="res://res/img/resources/foodicon.png" id="1_i8va4"]
 [ext_resource type="Script" uid="uid://cc7mmvj70485p" path="res://scenes/script/maingame/topbar.gd" id="1_jxvlb"]
@@ -17,6 +17,8 @@
 [ext_resource type="Script" uid="uid://dommqxlxium3q" path="res://scenes/script/maingame/build_button.gd" id="12_a4mnq"]
 [ext_resource type="Script" uid="uid://dqm1xwy5mkjmu" path="res://scenes/script/maingame/army_system.gd" id="16_gt45n"]
 [ext_resource type="Script" uid="uid://c2rfrinjvp14d" path="res://scenes/script/maingame/army_control_panel.gd" id="17_j0xcf"]
+[ext_resource type="Script" uid="uid://bsc5ytt8beyxm" path="res://scenes/script/maingame/land_system.gd" id="18_ruyfq"]
+[ext_resource type="Script" uid="uid://bctvt6tg4ipnb" path="res://scenes/script/maingame/army_path.gd" id="18_t5k4l"]
 
 [node name="maingame" type="Node2D"]
 script = ExtResource("1_k15ac")
@@ -27,6 +29,10 @@ offset_top = -1.0
 offset_right = 1151.0
 offset_bottom = 647.0
 script = ExtResource("2_8ja4j")
+
+[node name="army_path" type="Node2D" parent="map"]
+position = Vector2(-1, 1)
+script = ExtResource("18_t5k4l")
 
 [node name="building_layer" type="Node2D" parent="map"]
 
@@ -388,6 +394,9 @@ theme_override_font_sizes/font_size = 32
 text = "Cảnh báo
 "
 
+[node name="land_system" type="Node" parent="."]
+script = ExtResource("18_ruyfq")
+
 [connection signal="pressed" from="layertopbar/timelabel/stop_time_button" to="layertopbar/timelabel" method="_on_stop_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/half_time_button" to="layertopbar/timelabel" method="_on_half_time_button_pressed"]
 [connection signal="pressed" from="layertopbar/timelabel/once_time_button" to="layertopbar/timelabel" method="_on_once_time_button_pressed"]
@@ -400,3 +409,4 @@ text = "Cảnh báo
 [connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt2" to="army_system" method="_on_bt_2_pressed"]
 [connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt3" to="army_system" method="_on_bt_3_pressed"]
 [connection signal="pressed" from="army_system/army_control_panel/VBoxContainer/bt4" to="army_system" method="_on_bt_4_pressed"]
+[connection signal="button_down" from="army_system/army_control_panel/VBoxContainer/bt5" to="army_system" method="_on_bt_5_button_down"]
